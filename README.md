@@ -283,14 +283,6 @@ Roll Number: 102303648
 
 ---
 
-## Note
-
-This repository is created for academic purposes and demonstrates TOPSIS implementation through:
-- Command line execution
-- Python package distribution
-- Web-based deployment
-
----
 
 ## License
 
@@ -298,3 +290,4 @@ This project is part of an academic assignment and is for educational purposes o
 
 ---
 ⭐ Star this repository if you find it helpful!
+
