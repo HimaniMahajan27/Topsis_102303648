@@ -1,37 +1,49 @@
-# TOPSIS Assignment – 1 
+# TOPSIS Assignment – 1
 ---
 
-## About TOPSIS
+## 📊 About TOPSIS
 
 **TOPSIS** (Technique for Order of Preference by Similarity to Ideal Solution) is a multi-criteria decision-making (MCDM) technique used to rank alternatives based on their distance from an ideal best and an ideal worst solution.
 
 The best alternative is:
-- Closest to the positive ideal solution
-- Farthest from the negative ideal solution
+-  **Closest** to the positive ideal solution
+-  **Farthest** from the negative ideal solution
+
+### 🔄 Methodology
+
+TOPSIS follows these steps:
+
+1. **Normalization**: Convert the decision matrix into a normalized matrix using vector normalization
+2. **Weighted Normalization**: Multiply each column by its corresponding weight
+3. **Ideal Solutions**: Determine the ideal best (maximum for benefit, minimum for cost) and ideal worst (minimum for benefit, maximum for cost) values
+4. **Distance Calculation**: Calculate Euclidean distance of each alternative from ideal best and ideal worst
+5. **Performance Score**: Calculate TOPSIS score = Distance from worst / (Distance from best + Distance from worst)
+6. **Ranking**: Rank alternatives in descending order of TOPSIS score
 
 ---
 
-## Assignment Overview
+## 📌 Assignment Overview
 
-This repository contains three different implementations of TOPSIS, developed as part of an academic assignment:
+This repository contains **three different implementations** of TOPSIS, developed as part of an academic assignment:
 
 | Part | Implementation Type | Description |
 |------|-------------------|-------------|
-| Part 1 | Command Line Program | Pure Python script executed via terminal |
-| Part 2 | PyPI Package | Installable TOPSIS package |
-| Part 3 | Web Application | Hosted web app using Flask |
+| **Part 1** | 💻 Command Line Program | Pure Python script executed via terminal |
+| **Part 2** | 📦 PyPI Package | Installable TOPSIS package |
+| **Part 3** | 🌐 Web Application | Hosted web app using Flask |
 
 ---
-## Quick Links
+
+## 🔗 Quick Links
 
 | Resource | Link |
 |----------|------|
-| PyPI Package | [Pipy link](https://pypi.org/project/topsis-himani-102303648/1.0.2/) |
-| Web Application | [live demo](https://topsispart3.vercel.app/) |
+| 📦 **PyPI Package** | [View on PyPI](https://pypi.org/project/topsis-himani-102303648/1.0.2/) |
+| 🌐 **Web Application** | [Live Demo](https://topsispart3.vercel.app/) |
 
 ---
 
-## Repository Structure
+## 📂 Repository Structure
 
 ```
 Topsis_102303648/
@@ -55,31 +67,61 @@ Topsis_102303648/
 
 ---
 
-## Part 1: Command-Line TOPSIS Program
+## 💻 Part 1: Command-Line TOPSIS Program
 
 A standalone Python script that runs TOPSIS directly from the terminal.
 
-### Usage
+### ▶️ Usage
 
 ```bash
 python topsis.py d1.csv "1,1,1,2,1" "+,+,+,-,+" output.csv
 ```
 
-### Parameters Used
+### 🔢 Parameters Used
 - **Weights:** `1,1,1,2,1`
 - **Impacts:** `+,+,+,-,+`
 
-### Features
-- Validates number of arguments
-- Handles file not found errors
-- Ensures numeric values in data columns
-- Checks matching count of weights, impacts and criteria
-- Outputs a CSV file with Topsis Score and Rank
+### 📥 Input Data (d1.csv)
 
-### Code
+```csv
+Fund Name,p1,p2,p3,p4,p5
+M1,0.67,0.45,6.5,42.6,12.56
+M2,0.6,0.36,3.6,53.3,14.47
+M3,0.82,0.67,3.8,63.1,17.1
+M4,0.6,0.36,3.5,69.2,18.42
+M5,0.76,0.58,4.8,43,12.29
+M6,0.69,0.48,6.6,48.7,14.12
+M7,0.79,0.62,4.8,59.2,16.35
+M8,0.84,0.71,6.5,34.5,10.64
+```
+
+### 📤 Output Results (output.csv)
+
+```csv
+Fund Name,p1,p2,p3,p4,p5,Topsis Score,Rank
+M1,0.67,0.45,6.5,42.6,12.56,0.5344,4
+M2,0.6,0.36,3.6,53.3,14.47,0.3983,7
+M3,0.82,0.67,3.8,63.1,17.1,0.5199,5
+M4,0.6,0.36,3.5,69.2,18.42,0.4516,6
+M5,0.76,0.58,4.8,43,12.29,0.6302,2
+M6,0.69,0.48,6.6,48.7,14.12,0.5699,3
+M7,0.79,0.62,4.8,59.2,16.35,0.5111,6
+M8,0.84,0.71,6.5,34.5,10.64,0.7021,1
+```
+
+> **🏆 Best Alternative:** M8 (Rank 1) with TOPSIS Score of **0.7021**
+
+### ✨ Features
+- ✅ Validates number of arguments
+- ✅ Handles file not found errors
+- ✅ Ensures numeric values in data columns
+- ✅ Checks matching count of weights, impacts and criteria
+- ✅ Outputs a CSV file with Topsis Score and Rank
+
+### 📄 Code
 
 <details>
-<summary>Click to view topsis.py</summary>
+<summary><b>Click to view topsis.py</b></summary>
 
 ```python
 import sys
@@ -203,47 +245,47 @@ if __name__ == "__main__":
 
 ---
 
-## Part 2: TOPSIS PyPI Package
+## 📦 Part 2: TOPSIS PyPI Package
 
 TOPSIS implemented as a reusable Python package and published on PyPI.
 
-### Installation
+### 📥 Installation
 
 ```bash
 pip install topsis-himani-102303648==1.0.2
 ```
 
-### Usage
+### ▶️ Usage
 
 ```bash
 topsis input.csv "1,1,1,2,1" "+,+,+,-,+" result.csv
 ```
 
-### Features
-- Easy installation using pip
-- Same validation checks as Part 1
-- Suitable for reuse in other Python projects
-- Clean command-line interface
-
+### ✨ Features
+- ✅ Easy installation using pip
+- ✅ Same validation checks as Part 1
+- ✅ Suitable for reuse in other Python projects
+- ✅ Clean command-line interface
 
 ---
 
-## Part 3: Web Application
+## 🌐 Part 3: Web Application
 
 A Flask-based web application that allows users to perform TOPSIS analysis through a browser.
 
-### Live Application
+### 🚀 Live Application
 
+**Deployed at:** [https://topsispart3.vercel.app/](https://topsispart3.vercel.app/)
 
-### Features
-- CSV file upload
-- Input weights and impacts via form
-- Server-side validation
-- Automatic result file generation
-- Direct download of result CSV
-- Deployed on Vercel
+### ✨ Features
+- 📁 CSV file upload
+- ⚙️ Input weights and impacts via form
+- ✅ Server-side validation
+- 📊 Automatic result file generation
+- ⬇️ Direct download of result CSV
+- ☁️ Deployed on Vercel
 
-### Run Locally
+### 💻 Run Locally
 
 ```bash
 cd part3
@@ -255,7 +297,7 @@ Open in browser: `http://127.0.0.1:5000`
 
 ---
 
-## Input File Format
+## 📋 Input File Format
 
 ### Example CSV
 
@@ -266,7 +308,7 @@ M2,200,16,8,3,3500
 M3,300,32,16,4,4500
 ```
 
-### Rules
+### 📝 Rules
 - First column contains alternative names
 - Remaining columns contain numeric values only
 - Weights and impacts must be comma-separated
@@ -275,19 +317,17 @@ M3,300,32,16,4,4500
 
 ---
 
-
-## Author
+## 👤 Author
 
 **Himani Mahajan**  
 Roll Number: 102303648
 
 ---
 
-
-## License
+## 📄 License
 
 This project is part of an academic assignment and is for educational purposes only.
 
 ---
-⭐ Star this repository if you find it helpful!
 
+> ⭐ **Star this repository if you find it helpful!**
